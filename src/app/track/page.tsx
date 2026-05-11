@@ -165,6 +165,12 @@ function TrackingContent() {
               <Card className="rounded-3xl border-border shadow-lg overflow-hidden relative">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
                 <CardContent className="p-8 md:p-10">
+                  {result.image_url && (
+                    <div className="mb-8 rounded-2xl overflow-hidden h-64 md:h-80 relative border border-border bg-muted/30">
+                      {/* Using standard img for external Supabase URLs without next/image domains config */}
+                      <img src={result.image_url} alt="Product" className="w-full h-full object-cover" />
+                    </div>
+                  )}
                   <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
                     <div>
                       <p className="text-muted-foreground font-medium mb-1 tracking-wider uppercase text-sm">Tracking Number</p>

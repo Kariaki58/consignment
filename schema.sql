@@ -11,6 +11,7 @@ CREATE TABLE shipments (
   destination VARCHAR(255) NOT NULL,
   weight VARCHAR(50) NOT NULL,
   service_type VARCHAR(100) NOT NULL,
+  image_url TEXT,
   user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -85,3 +86,19 @@ CREATE POLICY "Users can delete tracking updates for their shipments" ON trackin
       AND shipments.user_id = auth.uid()
     )
   );
+
+-- Storage bucket setup
+INSERT INTO storage.buckets (id, name, public) VALUES ('shipments', 'shipments', true) ON CONFLICT DO NOTHING;
+
+-- Storage policies
+CREATE POLICY "Anyone can view shipment images" ON storage.objects
+  FOR SELECT USING (bucket_id = 'shipments');
+
+CREATE POLICY "Authenticated users can upload shipment images" ON storage.objects
+  FOR INSERT WITH CHECK (bucket_id = 'shipments' AND auth.role() = 'authenticated');
+
+CREATE POLICY "Authenticated users can update their shipment images" ON storage.objects
+  FOR UPDATE USING (bucket_id = 'shipments' AND auth.role() = 'authenticated');
+
+CREATE POLICY "Authenticated users can delete their shipment images" ON storage.objects
+  FOR DELETE USING (bucket_id = 'shipments' AND auth.role() = 'authenticated');

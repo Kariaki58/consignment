@@ -14,6 +14,7 @@ export default function CreateShipmentPage() {
   const router = useRouter();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [imageFile, setImageFile] = useState<File | null>(null);
   const [formData, setFormData] = useState({
     origin: "",
     destination: "",
@@ -39,6 +40,32 @@ export default function CreateShipmentPage() {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) throw new Error("Not authenticated");
 
+      let imageUrl = null;
+      
+      // Handle Image Upload to Supabase Storage
+      if (imageFile) {
+        const fileExt = imageFile.name.split('.').pop();
+        const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
+        const filePath = `${user.id}/${fileName}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('shipments')
+          .upload(filePath, imageFile, {
+            cacheControl: '3600',
+            upsert: false
+          });
+
+        if (uploadError) {
+          throw new Error(`Image upload failed: ${uploadError.message}`);
+        }
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('shipments')
+          .getPublicUrl(filePath);
+
+        imageUrl = publicUrl;
+      }
+
       const trackingNumber = generateTrackingNumber();
 
       const { data, error } = await supabase
@@ -52,6 +79,7 @@ export default function CreateShipmentPage() {
             weight: formData.weight,
             service_type: formData.service_type,
             estimated_delivery: formData.estimated_delivery,
+            image_url: imageUrl,
             user_id: user.id
           }
         ])
@@ -105,7 +133,7 @@ export default function CreateShipmentPage() {
         </div>
       </div>
 
-      <Card className="border-border shadow-sm">
+      <Card className="border-border shadow-sm bg-card">
         <CardHeader>
           <CardTitle className="font-headline flex items-center gap-2">
             <Package className="w-5 h-5 text-primary" /> Shipment Details
@@ -114,6 +142,19 @@ export default function CreateShipmentPage() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2 md:col-span-2">
+                <label className="text-sm font-medium">Product Image (Optional)</label>
+                <Input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    if (e.target.files && e.target.files.length > 0) {
+                      setImageFile(e.target.files[0]);
+                    }
+                  }}
+                  className="cursor-pointer file:text-primary file:bg-primary/10 file:border-0 file:rounded-md file:mr-4 file:px-4 file:py-1 hover:file:bg-primary/20"
+                />
+              </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Origin Location</label>
                 <Input
@@ -169,7 +210,7 @@ export default function CreateShipmentPage() {
               <Link href="/dashboard">
                 <Button variant="outline" type="button">Cancel</Button>
               </Link>
-              <Button type="submit" disabled={loading} className="bg-primary text-white">
+              <Button type="submit" disabled={loading} className="bg-primary text-primary-foreground hover:bg-primary/90">
                 {loading ? "Generating..." : "Generate Tracking ID"}
               </Button>
             </div>

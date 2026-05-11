@@ -128,6 +128,12 @@ export default function ManageShipmentPage({ params }: { params: Promise<{ id: s
         </div>
       </div>
 
+      {shipment.image_url && (
+        <div className="w-full h-64 md:h-80 rounded-2xl overflow-hidden relative border border-border bg-muted/30 mb-8">
+          <img src={shipment.image_url} alt="Product" className="w-full h-full object-cover" />
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Add Update Form */}
         <Card className="border-border shadow-sm h-fit">

@@ -4,31 +4,31 @@
 
 @layer base {
   :root {
-    --background: 140 20% 98%;
-    --foreground: 140 40% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 140 40% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 140 40% 10%;
+    --background: 142 50% 8%;
+    --foreground: 140 20% 98%;
+    --card: 142 50% 12%;
+    --card-foreground: 140 20% 98%;
+    --popover: 142 50% 10%;
+    --popover-foreground: 140 20% 98%;
     --primary: 142 71% 45%;
-    --primary-foreground: 140 20% 98%;
-    --secondary: 140 25% 90%;
-    --secondary-foreground: 140 40% 10%;
-    --muted: 140 15% 95%;
-    --muted-foreground: 140 10% 45%;
+    --primary-foreground: 142 50% 5%;
+    --secondary: 142 40% 15%;
+    --secondary-foreground: 140 20% 98%;
+    --muted: 142 30% 15%;
+    --muted-foreground: 140 10% 65%;
     --accent: 142 71% 45%;
     --accent-foreground: 140 20% 98%;
-    --destructive: 0 84% 60%;
+    --destructive: 0 62% 30%;
     --destructive-foreground: 140 20% 98%;
-    --border: 140 20% 90%;
-    --input: 140 20% 90%;
+    --border: 142 40% 15%;
+    --input: 142 40% 15%;
     --ring: 142 71% 45%;
     --radius: 1rem;
     --chart-1: 142 71% 45%;
-    --chart-2: 140 25% 90%;
-    --chart-3: 140 10% 45%;
+    --chart-2: 142 50% 15%;
+    --chart-3: 140 10% 65%;
     --chart-4: 140 20% 98%;
-    --chart-5: 140 40% 10%;
+    --chart-5: 142 50% 8%;
   }
 
   .dark {
@@ -67,7 +67,7 @@
 }
 
 .glassmorphism {
-  @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-lg;
+  @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-lg;
 }
 
 .dark .glassmorphism {

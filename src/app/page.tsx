@@ -91,20 +91,24 @@ export default function Home() {
                   SwiftTrack offers seamless, secure, and fast logistics solutions. Enter your tracking number below to get live updates on your shipment.
                 </motion.p>
                 
-                <motion.div variants={fadeInUp} className="relative max-w-lg mb-8">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <Search className="h-6 w-6 text-muted-foreground" />
+                <motion.div variants={fadeInUp} className="mb-8 max-w-lg">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="relative flex-grow">
+                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <Search className="h-5 w-5 text-muted-foreground" />
+                      </div>
+                      <Input 
+                        type="text" 
+                        placeholder="Enter Tracking Number..." 
+                        className="pl-11 pr-4 py-7 text-base md:text-lg rounded-2xl shadow-lg border-2 border-primary/20 focus-visible:ring-primary w-full"
+                      />
+                    </div>
+                    <Link href="/track" className="w-full sm:w-auto shrink-0">
+                      <Button className="w-full rounded-2xl bg-primary hover:bg-primary/90 text-white px-8 py-7 font-bold text-lg transition-transform hover:scale-105 shadow-lg">
+                        Track
+                      </Button>
+                    </Link>
                   </div>
-                  <Input 
-                    type="text" 
-                    placeholder="Enter Tracking Number (e.g. ST123456789)" 
-                    className="pl-12 pr-32 py-8 text-lg rounded-2xl shadow-lg border-2 border-primary/20 focus-visible:ring-primary"
-                  />
-                  <Link href="/track">
-                    <Button className="absolute right-2 top-2 bottom-2 rounded-xl bg-primary hover:bg-primary/90 text-white px-6 font-bold text-lg transition-transform hover:scale-105">
-                      Track
-                    </Button>
-                  </Link>
                 </motion.div>
 
                 <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
@@ -153,7 +157,7 @@ export default function Home() {
         </section>
 
         {/* Stats Section */}
-        <section className="bg-foreground py-20 px-6 relative overflow-hidden">
+        <section className="bg-secondary py-20 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-luxury",
+      "description": "Luxury items showcase",
+      "imageUrl": "https://picsum.photos/seed/luxury1/1200/800",
+      "imageHint": "luxury watch"
+    },
+    {
+      "id": "product-bag",
+      "description": "Luxury leather handbag",
+      "imageUrl": "https://picsum.photos/seed/bag1/600/600",
+      "imageHint": "leather handbag"
+    },
+    {
+      "id": "product-watch",
+      "description": "Elegant timepiece",
+      "imageUrl": "https://picsum.photos/seed/watch1/600/600",
+      "imageHint": "luxury watch"
+    },
+    {
+      "id": "product-shoes",
+      "description": "Designer sneakers",
+      "imageUrl": "https://picsum.photos/seed/shoes1/600/600",
+      "imageHint": "designer shoes"
+    },
+    {
+      "id": "product-jacket",
+      "description": "Premium winter jacket",
+      "imageUrl": "https://picsum.photos/seed/jacket1/600/600",
+      "imageHint": "winter jacket"
+    },
+    {
+      "id": "consign-step-1",
+      "description": "Taking photo of item",
+      "imageUrl": "https://picsum.photos/seed/photo1/600/400",
+      "imageHint": "photography phone"
+    },
+    {
+      "id": "user-avatar-1",
+      "description": "Customer testimonial 1",
+      "imageUrl": "https://picsum.photos/seed/user1/100/100",
+      "imageHint": "portrait woman"
+    },
+    {
+      "id": "user-avatar-2",
+      "description": "Customer testimonial 2",
+      "imageUrl": "https://picsum.photos/seed/user2/100/100",
+      "imageHint": "portrait man"
+    }
+  ]
 }

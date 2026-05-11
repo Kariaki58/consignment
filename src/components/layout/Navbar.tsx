@@ -30,29 +30,28 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12">
-            <span className="text-white font-headline font-bold">V</span>
+            <span className="text-white font-headline font-bold">S</span>
           </div>
           <span className="font-headline font-bold text-xl tracking-tight text-foreground">
-            Veridian<span className="text-primary">Market</span>
+            Swift<span className="text-primary">Track</span>
           </span>
         </Link>
 
-        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/browse" className="text-sm font-medium hover:text-primary transition-colors">Browse</Link>
-          <Link href="/how-it-works" className="text-sm font-medium hover:text-primary transition-colors">How it Works</Link>
+          <Link href="/track" className="text-sm font-medium hover:text-primary transition-colors">Track</Link>
+          <Link href="/services" className="text-sm font-medium hover:text-primary transition-colors">Services</Link>
           <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">About</Link>
-          <Link href="/faq" className="text-sm font-medium hover:text-primary transition-colors">FAQ</Link>
+          <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</Link>
         </div>
 
         <div className="hidden md:flex items-center gap-4">
           <Button variant="ghost" size="icon" className="hover:text-primary">
             <Search className="w-5 h-5" />
           </Button>
-          <Link href="/consign">
+          <Link href="/track">
             <Button className="bg-primary hover:bg-primary/90 text-white flex gap-2">
-              <PlusCircle className="w-4 h-4" />
-              Consign Now
+              <Search className="w-4 h-4" />
+              Track Shipment
             </Button>
           </Link>
           <Link href="/dashboard">
@@ -74,12 +73,12 @@ export function Navbar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 flex flex-col gap-6 animate-in slide-in-from-top-4">
-          <Link href="/browse" className="text-lg font-medium" onClick={() => setIsMobileMenuOpen(false)}>Browse</Link>
-          <Link href="/how-it-works" className="text-lg font-medium" onClick={() => setIsMobileMenuOpen(false)}>How it Works</Link>
+          <Link href="/track" className="text-lg font-medium" onClick={() => setIsMobileMenuOpen(false)}>Track Shipment</Link>
+          <Link href="/services" className="text-lg font-medium" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
           <Link href="/dashboard" className="text-lg font-medium" onClick={() => setIsMobileMenuOpen(false)}>My Dashboard</Link>
-          <Link href="/consign">
+          <Link href="/track">
             <Button className="w-full bg-primary py-6" onClick={() => setIsMobileMenuOpen(false)}>
-              Start Consigning
+              Track Now
             </Button>
           </Link>
         </div>

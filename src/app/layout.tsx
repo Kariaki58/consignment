@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Veridian Market | Luxury Consignment Marketplace',
-  description: 'Buy, sell, and consign luxury or everyday items online with Veridian Market.',
+  title: 'SwiftTrack Logistics | Global Consignment Tracking',
+  description: 'Track your consignments, freight, and cargo globally with SwiftTrack Logistics.',
 };
 
 export default function RootLayout({

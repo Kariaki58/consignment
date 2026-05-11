@@ -11,12 +11,12 @@ export function Footer() {
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6">
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-headline font-bold">V</span>
+                <span className="text-white font-headline font-bold">S</span>
               </div>
-              <span className="font-headline font-bold text-xl tracking-tight">Veridian Market</span>
+              <span className="font-headline font-bold text-xl tracking-tight">SwiftTrack</span>
             </Link>
             <p className="text-muted-foreground/80 mb-6 text-sm leading-relaxed">
-              Veridian Market is the world's most trusted destination for buying and selling high-end luxury items. We guarantee authenticity in every transaction.
+              SwiftTrack Logistics is your reliable partner for global freight, consignment tracking, and courier services. Fast, secure, and always on time.
             </p>
             <div className="flex gap-4">
               <Link href="#" className="hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></Link>
@@ -26,12 +26,12 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-headline font-bold mb-6">Marketplace</h4>
+            <h4 className="font-headline font-bold mb-6">Services</h4>
             <ul className="space-y-4 text-sm text-muted-foreground/80">
-              <li><Link href="/browse" className="hover:text-primary transition-colors">Browse Items</Link></li>
-              <li><Link href="/consign" className="hover:text-primary transition-colors">Sell an Item</Link></li>
-              <li><Link href="/how-it-works" className="hover:text-primary transition-colors">How it Works</Link></li>
-              <li><Link href="/authentication" className="hover:text-primary transition-colors">Verification Process</Link></li>
+              <li><Link href="/track" className="hover:text-primary transition-colors">Track Shipment</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Freight Services</Link></li>
+              <li><Link href="/locations" className="hover:text-primary transition-colors">Global Locations</Link></li>
+              <li><Link href="/business" className="hover:text-primary transition-colors">Business Accounts</Link></li>
             </ul>
           </div>
 
@@ -47,7 +47,7 @@ export function Footer() {
 
           <div>
             <h4 className="font-headline font-bold mb-6">Join Our Newsletter</h4>
-            <p className="text-sm text-muted-foreground/80 mb-4">Get early access to exclusive luxury drops and consignment tips.</p>
+            <p className="text-sm text-muted-foreground/80 mb-4">Get the latest logistics updates and tracking insights.</p>
             <div className="flex gap-2">
               <Input 
                 placeholder="Email address" 
@@ -61,7 +61,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-muted-foreground/10 pt-8 flex flex-col md:row items-center justify-between gap-4 text-xs text-muted-foreground/60">
-          <p>© {new Date().getFullYear()} Veridian Market Inc. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SwiftTrack Logistics Inc. All rights reserved.</p>
           <div className="flex gap-8">
             <Link href="#" className="hover:text-primary">Privacy Policy</Link>
             <Link href="#" className="hover:text-primary">Cookie Policy</Link>
